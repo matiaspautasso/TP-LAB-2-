@@ -17,27 +17,28 @@ namespace PrySamuraiVsNinja
         {
             InitializeComponent();
         }
-
+        
+        
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             //hacer cronometro de 1,10 min tiene que cambiar los lbl contando de 1,10 hacia 0
-            timer1.Start();
+            
         }
+        int seg = 150;
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblTiempo.Text += 1;
-            if (lblTiempo.Text == "60")
-            {
-                lblTiempo2.Text += 1;
-                lblTiempo.Text = "00";
-            }
+            for(int seg=150; seg>=0;seg--) 
+            { 
+            lblTiempo2.Text = seg.ToString();
+            }   
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //configurar en la clase cuanto resta el ataque de cada personaje
+            timer1.Start();
         }
 
         private void FrmPelea_Load(object sender, EventArgs e)

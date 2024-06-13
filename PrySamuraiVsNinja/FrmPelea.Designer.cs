@@ -49,7 +49,6 @@
             this.trackBar4 = new System.Windows.Forms.TrackBar();
             this.trackBar5 = new System.Windows.Forms.TrackBar();
             this.lstLogs = new System.Windows.Forms.ListBox();
-            this.lblTiempo = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblTiempo2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
@@ -287,17 +286,6 @@
             this.lstLogs.Size = new System.Drawing.Size(238, 109);
             this.lstLogs.TabIndex = 29;
             // 
-            // lblTiempo
-            // 
-            this.lblTiempo.BackColor = System.Drawing.Color.Transparent;
-            this.lblTiempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTiempo.ForeColor = System.Drawing.Color.White;
-            this.lblTiempo.Location = new System.Drawing.Point(391, 18);
-            this.lblTiempo.Name = "lblTiempo";
-            this.lblTiempo.Size = new System.Drawing.Size(38, 22);
-            this.lblTiempo.TabIndex = 30;
-            this.lblTiempo.Text = "00";
-            // 
             // timer1
             // 
             this.timer1.Interval = 10;
@@ -306,11 +294,11 @@
             // lblTiempo2
             // 
             this.lblTiempo2.BackColor = System.Drawing.Color.Transparent;
-            this.lblTiempo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTiempo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTiempo2.ForeColor = System.Drawing.Color.White;
-            this.lblTiempo2.Location = new System.Drawing.Point(347, 18);
+            this.lblTiempo2.Location = new System.Drawing.Point(359, 21);
             this.lblTiempo2.Name = "lblTiempo2";
-            this.lblTiempo2.Size = new System.Drawing.Size(38, 22);
+            this.lblTiempo2.Size = new System.Drawing.Size(60, 45);
             this.lblTiempo2.TabIndex = 31;
             this.lblTiempo2.Text = "00";
             // 
@@ -321,7 +309,6 @@
             this.BackgroundImage = global::PrySamuraiVsNinja.Properties.Resources.Fondo_pelea_gif2;
             this.ClientSize = new System.Drawing.Size(757, 338);
             this.Controls.Add(this.lblTiempo2);
-            this.Controls.Add(this.lblTiempo);
             this.Controls.Add(this.lstLogs);
             this.Controls.Add(this.trackBar5);
             this.Controls.Add(this.trackBar4);
@@ -376,7 +363,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label lblTiempo;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblTiempo2;
         private System.Windows.Forms.Label label1;
