@@ -11,6 +11,8 @@ namespace PrySamuraiVsNinja
         public int ID { get; set; } 
         public string NOMBRE { get; set; }  
         public string TIPO { get; set; }
+        public string VIDA { get; set; }
+        public string MANA { get; set; }
         
 
         

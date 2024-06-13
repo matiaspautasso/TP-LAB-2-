@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsNINJA.cs" />
     <Compile Include="clsPersonaje.cs" />
+    <Compile Include="clsSAMURAI.cs" />
     <Compile Include="conexionDBA.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

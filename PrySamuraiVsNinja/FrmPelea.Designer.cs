@@ -102,6 +102,7 @@
             this.button3.TabIndex = 17;
             this.button3.Text = "Ataque especial";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -114,6 +115,7 @@
             this.button2.TabIndex = 16;
             this.button2.Text = "Descansar";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -126,6 +128,7 @@
             this.button1.TabIndex = 15;
             this.button1.Text = "ataque simple";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnIniciar
             // 
@@ -334,6 +337,7 @@
             this.Controls.Add(this.pictureBox3);
             this.Name = "FrmPelea";
             this.Text = "Pelea";
+            this.Load += new System.EventHandler(this.FrmPelea_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
