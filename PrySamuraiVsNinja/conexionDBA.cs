@@ -12,20 +12,17 @@ namespace PrySamuraiVsNinja
 {
     internal class conexionDBA
     {
+
         OleDbCommand comando;
         OleDbConnection conexion;
         OleDbDataAdapter adaptador;
-
         string cadena;
         public conexionDBA()
         {
-            string basePath = AppDomain.CurrentDomain.BaseDirectory;
-            string relativePath = "NinjaVsSamuraiDBA.accdb";
-            string fullPath = System.IO.Path.Combine(basePath, relativePath);
-            cadena = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={fullPath};";
-
+            cadena = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=NinjaVsSamuraiDBA.accdb";
         }
-        public void insertarUsuario(clsPersonaje usuario)    /// me quede aca no puedo conectar la base de datos, para crear personajes
+
+        public void insertarUsuario(clsPersonaje usuario)
         {
             try
             {
@@ -34,11 +31,9 @@ namespace PrySamuraiVsNinja
 
                 comando.Connection = conexion;
                 comando.CommandType = CommandType.Text;
-                comando.CommandText =
-                    $"INSERT INTO Personajes(NOMBRE, TIPO) VALUES('{usuario.NOMBRE}', '{usuario.TIPO}')";
+                comando.CommandText = $"INSERT INTO Personajes(NOMBRE, TIPO) VALUES ('{usuario.NOMBRE}','{usuario.TIPO}')";
 
                 conexion.Open();
-
                 comando.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -51,7 +46,5 @@ namespace PrySamuraiVsNinja
             }
         }
     }
-
-
- }
+}
 

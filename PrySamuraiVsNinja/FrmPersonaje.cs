@@ -41,6 +41,7 @@ namespace PrySamuraiVsNinja
         private void btnSamurai_Click(object sender, EventArgs e)
         {
             clsPersonaje samurai = new clsPersonaje();
+           
 
             if (string.IsNullOrWhiteSpace(txtNomSamurai.Text))
             {
@@ -59,6 +60,7 @@ namespace PrySamuraiVsNinja
 
         private void btnNinja_Click(object sender, EventArgs e)
         {
+            clsPersonaje ninja = new clsPersonaje();
             if (txtNombreNinja.Text == "")
             {
                 MessageBox.Show("poner nombre");
@@ -66,10 +68,10 @@ namespace PrySamuraiVsNinja
             else
             {
                 btnNinja.Text = "personaje creado";
-                //string nombre = txtNomSamurai.Text;
-                //jugador1 = new Guerrero(nombre);
-                //lstCrearPersonaje(jugador1.Nombre, jugador1.TipoPersonaje);
-                //playerControl[0] = true;
+                ninja.NOMBRE = txtNomSamurai.Text;
+                ninja.TIPO = "SAMURAI";
+                conexionDBA DBA = new conexionDBA();
+                DBA.insertarUsuario(ninja);
             }
            
         }
