@@ -68,8 +68,8 @@ namespace PrySamuraiVsNinja
             else
             {
                 btnNinja.Text = "personaje creado";
-                ninja.NOMBRE = txtNomSamurai.Text;
-                ninja.TIPO = "SAMURAI";
+                ninja.NOMBRE = txtNombreNinja.Text;
+                ninja.TIPO = "NINJA";
                 conexionDBA DBA = new conexionDBA();
                 DBA.insertarUsuario(ninja);
             }
