@@ -27,7 +27,6 @@ namespace PrySamuraiVsNinja
             if (MANA < 0) MANA = 0;
         }
 
-
-
     }
+   
 }

@@ -25,6 +25,7 @@ namespace PrySamuraiVsNinja
         private bool TURNO;
         private Timer timer1;
         private int duration;
+        private conexionDBA DBA;
 
 
         private void btnIniciar_Click(object sender, EventArgs e)
@@ -37,7 +38,7 @@ namespace PrySamuraiVsNinja
             ControlDeTurno();
             btnAtaqueSimple.Enabled = true;
             btnDescansar.Enabled = true;
-
+            
 
 
         }
@@ -70,12 +71,12 @@ namespace PrySamuraiVsNinja
         private void button1_Click(object sender, EventArgs e)
         {
             //btnataque simple: 
-            if (TURNO)
+            if (TURNO==true)
             {
                 samurai.RecibirDanio(ninja.AtaqueSimple());
                 MessageBox.Show($"NINJA ataca y SAMURAI tiene {samurai.VIDA} de vida restante.");
             }
-            else
+            else //si es false
             {
                 ninja.RecibirDanio(samurai.AtaqueSimple());
                 MessageBox.Show($"SAMURAI ataca y NINJA tiene {ninja.VIDA} de vida restante.");
@@ -84,11 +85,15 @@ namespace PrySamuraiVsNinja
             if (samurai.VIDA <= 0)
             {
                 MessageBox.Show("NINJA gana!");
+                DBA.ActualizarVictorias(ninja.ID);  //ERROR ACA 
+                DBA.ActualizarDerrotas(samurai.ID);
                 ResetGame();
             }
             else if (ninja.VIDA <= 0)
             {
                 MessageBox.Show("SAMURAI gana!");
+                DBA.ActualizarVictorias(samurai.ID);
+                DBA.ActualizarDerrotas(ninja.ID);
                 ResetGame();
             }
             else
@@ -135,7 +140,7 @@ namespace PrySamuraiVsNinja
             btnDescansar.Enabled = false;
         }
 
-        private void button3_Click(object sender, EventArgs e) //btnAtaqueEspecial
+        private void button3_Click(object sender, EventArgs e) //btnAtaqueEspecial   
         {
             if (TURNO)
             {
@@ -148,6 +153,7 @@ namespace PrySamuraiVsNinja
                 else
                 {
                     MessageBox.Show("NINJA no tiene suficiente mana para usar el ataque especial.");
+                    return;
                 }
             }
             else
@@ -161,22 +167,28 @@ namespace PrySamuraiVsNinja
                 else
                 {
                     MessageBox.Show("SAMURAI no tiene suficiente mana para usar el ataque especial.");
+                    return;
                 }
             }
 
             if (samurai.VIDA <= 0)
             {
                 MessageBox.Show("NINJA gana!");
+                DBA.ActualizarVictorias(ninja.ID);
+                DBA.ActualizarDerrotas(samurai.ID);
                 ResetGame();
             }
-            else if (ninja.VIDA <= 0)
+            else
+            if (ninja.VIDA <= 0)
             {
                 MessageBox.Show("SAMURAI gana!");
+                DBA.ActualizarVictorias(samurai.ID);
+                DBA.ActualizarDerrotas(ninja.ID);
                 ResetGame();
             }
             else
             {
-                ControlDeTurno();
+                ControlDeTurno(); // Cambiar de turno después de un ataque
             }
 
         }

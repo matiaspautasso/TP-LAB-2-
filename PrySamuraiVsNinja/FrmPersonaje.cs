@@ -42,8 +42,6 @@ namespace PrySamuraiVsNinja
         private void btnSamurai_Click(object sender, EventArgs e)
         {
             
-           
-
             if (string.IsNullOrWhiteSpace(txtNomSamurai.Text))
             {
                 MessageBox.Show("Por favor, ingresa un nombre.");

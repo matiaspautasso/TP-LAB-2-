@@ -45,6 +45,52 @@ namespace PrySamuraiVsNinja
                 conexion.Close();
             }
         }
+        public void ActualizarVictorias(int personajeId)
+        {
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = $"UPDATE Personajes SET VICTORIAS = VICTORIAS + 1 WHERE ID = {personajeId}"; //corregir
+
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+        public void ActualizarDerrotas(int personajeId)
+        {
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = $"UPDATE Personajes SET DERROTA = DERROTA + 1 WHERE ID = {personajeId}"; //corregir
+
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
     }
 }
 
