@@ -22,17 +22,33 @@ namespace PrySamuraiVsNinja
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             //hacer cronometro de 1,10 min tiene que cambiar los lbl contando de 1,10 hacia 0
-            
+            timer1 = new System.Windows.Forms.Timer();
+            timer1.Tick += new EventHandler(Contador);
+            timer1.Interval = 1000;
+            timer1.Start();
         }
-        int seg = 150;
+        public int duration = 40;
 
+        private void Contador(object sender, EventArgs e)
+        {
+            if (duration == 0)
+            {
+                timer1.Stop();
+
+            }
+            else if (duration > 0)
+            {
+                duration--;
+                lblTiempo2.Text = duration.ToString();
+            }
+        }
+
+
+
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
-            for(int seg=150; seg>=0;seg--) 
-            { 
-            lblTiempo2.Text = seg.ToString();
-            }   
-
+          
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,6 +60,7 @@ namespace PrySamuraiVsNinja
         private void FrmPelea_Load(object sender, EventArgs e)
         {
             //bloquear los botones hasta desbloquearlos con boton iniciar
+            lblTiempo2.Text = "00";
         }
 
         private void button2_Click(object sender, EventArgs e)
