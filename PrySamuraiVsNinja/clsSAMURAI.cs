@@ -6,9 +6,27 @@ using System.Threading.Tasks;
 
 namespace PrySamuraiVsNinja
 {
-    internal class clsSAMURAI
+    internal class clsSAMURAI :clsPersonaje
     {
-        //ACA DEBE TENER EL ATAQUE SIMPLE Y ESPECIAL DE SAMURAI 
-       
+        public int AtaqueS { get; set; } = 20;
+        public int AtaqueE { get; set; } = 30;
+
+        public clsSAMURAI()
+        {
+            NOMBRE = "SAMURAI";
+            VIDA = 100; // Asumiendo una vida inicial
+            MANA = 100;
+        }
+
+        public int AtaqueSimple()
+        {
+            return AtaqueS;
+        }
+
+        public int AtaqueEspecial()
+        {
+            return AtaqueE;
+        }
+
     }
 }

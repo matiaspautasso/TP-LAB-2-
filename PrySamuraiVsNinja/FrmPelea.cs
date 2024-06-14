@@ -16,36 +16,38 @@ namespace PrySamuraiVsNinja
         public FrmPelea()
         {
             InitializeComponent();
+            ninja = new clsNINJA();
+            samurai = new clsSAMURAI();
         }
-        
-        
+        //
+        private clsNINJA ninja;
+        private clsSAMURAI samurai;
+        private bool TURNO;
+        private Timer timer1;
+        private int duration;
+
+
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            //hacer cronometro 
-            //aca quede  MessageBox.Show($"{randomBool}");  comprobar si anda o no el random
+            duration = 40;
             timer1 = new Timer();
             timer1.Tick += new EventHandler(Contador);
             timer1.Interval = 1000;
             timer1.Start();
+            ControlDeTurno();
+            btnAtaqueSimple.Enabled = true;
+            btnDescansar.Enabled = true;
 
-            if (randomBool == false)
-            {
-                lblPersonaje.Text = " SAMURAI"; //ACA QUEDO 
-            }
-            if (!randomBool == false)
-            {
-                lblPersonaje.Text = " NINJA";
-            }
-         
+
+
         }
-        public int duration = 40;
+        //
 
         private void Contador(object sender, EventArgs e)
         {
             if (duration == 0)
             {
                 timer1.Stop();
-
             }
             else if (duration > 0)
             {
@@ -61,40 +63,50 @@ namespace PrySamuraiVsNinja
         {
           
         }
-        clsNINJA NINJA = new clsNINJA();
 
-        
+        clsNINJA NINJA;
+        clsSAMURAI SAMURAI; 
 
         private void button1_Click(object sender, EventArgs e)
         {
             //btnataque simple: 
-            
-           int ataqueS = NINJA.AtaqueS;
+            if (TURNO)
+            {
+                samurai.RecibirDanio(ninja.AtaqueSimple());
+                MessageBox.Show($"NINJA ataca y SAMURAI tiene {samurai.VIDA} de vida restante.");
+            }
+            else
+            {
+                ninja.RecibirDanio(samurai.AtaqueSimple());
+                MessageBox.Show($"SAMURAI ataca y NINJA tiene {ninja.VIDA} de vida restante.");
+            }
 
+            if (samurai.VIDA <= 0)
+            {
+                MessageBox.Show("NINJA gana!");
+                ResetGame();
+            }
+            else if (ninja.VIDA <= 0)
+            {
+                MessageBox.Show("SAMURAI gana!");
+                ResetGame();
+            }
+            else
+            {
+                ControlDeTurno(); // Cambiar de turno después de un ataque
+            }
 
-
-            //configurar en la clase cuanto resta el ataque de cada personaje
-            
         }
-        clsPersonaje Ninja = new clsPersonaje();
-        clsPersonaje Samurai = new clsPersonaje();
+      
      
 
         public void ControlDeTurno()
         {
-            string turno = "";
-            if (Ninja.TURNO)
-            {
-                turno = " NINJA";
-            }
-            else
-            {
-                turno = "SAMURAI ";
-            }
-            lblPersonaje.Text = turno;
+            TURNO = GetRandomBool();
+            lblPersonaje.Text = TURNO ? "NINJA" : "SAMURAI";  //CAMBIAR
         }
 
-        bool randomBool = GetRandomBool();
+        
         public static bool GetRandomBool()
         {
             Random rand = new Random();
@@ -105,16 +117,68 @@ namespace PrySamuraiVsNinja
         {
             //bloquear los botones hasta desbloquearlos con boton iniciar
             lblTiempo2.Text = "00";
+            btnAtaqueSimple.Enabled = false;
+            btnDescansar.Enabled = false;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //btnDecansar
         {
             //este boton debe cederle el turno al rival 
+            ControlDeTurno();
+        }
+        private void ResetGame()
+        {
+            ninja.VIDA = 100;
+            samurai.VIDA = 100;
+            lblTiempo2.Text = "00";
+            btnAtaqueSimple.Enabled = false;
+            btnDescansar.Enabled = false;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //btnAtaqueEspecial
         {
-            // //configurar en la clase cuanto resta el ataque de cada personaje
+            if (TURNO)
+            {
+                if (ninja.MANA >= 30)
+                {
+                    samurai.RecibirDanio(ninja.AtaqueEspecial());
+                    ninja.ConsumirMana(30);
+                    MessageBox.Show($"NINJA usa ataque especial y SAMURAI tiene {samurai.VIDA} de vida restante. NINJA tiene {ninja.MANA} de mana restante.");
+                }
+                else
+                {
+                    MessageBox.Show("NINJA no tiene suficiente mana para usar el ataque especial.");
+                }
+            }
+            else
+            {
+                if (samurai.MANA >= 30)
+                {
+                    ninja.RecibirDanio(samurai.AtaqueEspecial());
+                    samurai.ConsumirMana(30);
+                    MessageBox.Show($"SAMURAI usa ataque especial y NINJA tiene {ninja.VIDA} de vida restante. SAMURAI tiene {samurai.MANA} de mana restante.");
+                }
+                else
+                {
+                    MessageBox.Show("SAMURAI no tiene suficiente mana para usar el ataque especial.");
+                }
+            }
+
+            if (samurai.VIDA <= 0)
+            {
+                MessageBox.Show("NINJA gana!");
+                ResetGame();
+            }
+            else if (ninja.VIDA <= 0)
+            {
+                MessageBox.Show("SAMURAI gana!");
+                ResetGame();
+            }
+            else
+            {
+                ControlDeTurno();
+            }
+
         }
     }
 }

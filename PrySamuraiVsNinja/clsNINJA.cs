@@ -8,17 +8,26 @@ namespace PrySamuraiVsNinja
 {
     internal class clsNINJA :clsPersonaje
     {
-         
-        public int AtaqueS {  get; set; }   
-        public int AtaqueE {  get; set; }   
 
-        public clsNINJA() 
+        public int AtaqueS { get; set; } = 20;
+        public int AtaqueE { get; set; } = 30;
+
+        public clsNINJA()
         {
-        AtaqueS = 20;
-        AtaqueE = 30;
-        }   
-        //aca debe tener el ataque espcial y simple de ninja
-      
+            NOMBRE = "NINJA";
+            VIDA = 100; // Asumiendo una vida inicial
+            MANA = 100;
+        }
+
+        public int AtaqueSimple()
+        {
+            return AtaqueS;
+        }
+
+        public int AtaqueEspecial()
+        {
+            return AtaqueE;
+        }
 
 
     }

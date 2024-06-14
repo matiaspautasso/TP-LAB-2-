@@ -363,7 +363,7 @@
         private System.Windows.Forms.Button btnAtaqueEspecial;
         private System.Windows.Forms.Button btnDescansar;
         private System.Windows.Forms.Button btnAtaqueSimple;
-        private System.Windows.Forms.Timer timer1;
+        
         private System.Windows.Forms.Label lblTiempo2;
         private System.Windows.Forms.Label lblPersonaje;
     }
