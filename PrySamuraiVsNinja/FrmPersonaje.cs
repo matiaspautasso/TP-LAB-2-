@@ -37,10 +37,11 @@ namespace PrySamuraiVsNinja
             else MessageBox.Show("completar campos"); btnNinja.Enabled = false; btnSamurai.Enabled = false;
             
         }
-        
+        clsPersonaje samurai = new clsPersonaje();
+
         private void btnSamurai_Click(object sender, EventArgs e)
         {
-            clsPersonaje samurai = new clsPersonaje();
+            
            
 
             if (string.IsNullOrWhiteSpace(txtNomSamurai.Text))
@@ -57,10 +58,11 @@ namespace PrySamuraiVsNinja
             }
 
         }
+        clsPersonaje ninja = new clsPersonaje();
 
         private void btnNinja_Click(object sender, EventArgs e)
         {
-            clsPersonaje ninja = new clsPersonaje();
+            
             if (txtNombreNinja.Text == "")
             {
                 MessageBox.Show("poner nombre");

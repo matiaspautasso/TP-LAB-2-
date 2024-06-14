@@ -13,8 +13,10 @@ namespace PrySamuraiVsNinja
         public string TIPO { get; set; }
         public string VIDA { get; set; }
         public string MANA { get; set; }
-        
+        public bool TURNO { get; set; }
 
-        
+
+
+
     }
 }

@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lblPersonaje = new System.Windows.Forms.Label();
+            this.btnAtaqueEspecial = new System.Windows.Forms.Button();
+            this.btnDescansar = new System.Windows.Forms.Button();
+            this.btnAtaqueSimple = new System.Windows.Forms.Button();
             this.btnIniciar = new System.Windows.Forms.Button();
             this.lblRes2 = new System.Windows.Forms.Label();
             this.lblVida2 = new System.Windows.Forms.Label();
@@ -68,10 +68,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.lblPersonaje);
+            this.panel2.Controls.Add(this.btnAtaqueEspecial);
+            this.panel2.Controls.Add(this.btnDescansar);
+            this.panel2.Controls.Add(this.btnAtaqueSimple);
             this.panel2.Controls.Add(this.btnIniciar);
             this.panel2.Controls.Add(this.lblRes2);
             this.panel2.Controls.Add(this.lblVida2);
@@ -80,54 +80,54 @@
             this.panel2.Size = new System.Drawing.Size(756, 69);
             this.panel2.TabIndex = 11;
             // 
-            // label1
+            // lblPersonaje
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(547, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 31);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Jugador x";
+            this.lblPersonaje.AutoSize = true;
+            this.lblPersonaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPersonaje.Location = new System.Drawing.Point(547, 20);
+            this.lblPersonaje.Name = "lblPersonaje";
+            this.lblPersonaje.Size = new System.Drawing.Size(141, 31);
+            this.lblPersonaje.TabIndex = 18;
+            this.lblPersonaje.Text = "Jugador x";
             // 
-            // button3
+            // btnAtaqueEspecial
             // 
-            this.button3.BackColor = System.Drawing.Color.DarkCyan;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(427, 8);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(96, 43);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "Ataque especial";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnAtaqueEspecial.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnAtaqueEspecial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtaqueEspecial.ForeColor = System.Drawing.Color.White;
+            this.btnAtaqueEspecial.Location = new System.Drawing.Point(427, 8);
+            this.btnAtaqueEspecial.Name = "btnAtaqueEspecial";
+            this.btnAtaqueEspecial.Size = new System.Drawing.Size(96, 43);
+            this.btnAtaqueEspecial.TabIndex = 17;
+            this.btnAtaqueEspecial.Text = "Ataque especial";
+            this.btnAtaqueEspecial.UseVisualStyleBackColor = false;
+            this.btnAtaqueEspecial.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // btnDescansar
             // 
-            this.button2.BackColor = System.Drawing.Color.Green;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(294, 8);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 43);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Descansar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnDescansar.BackColor = System.Drawing.Color.Green;
+            this.btnDescansar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDescansar.ForeColor = System.Drawing.Color.White;
+            this.btnDescansar.Location = new System.Drawing.Point(294, 8);
+            this.btnDescansar.Name = "btnDescansar";
+            this.btnDescansar.Size = new System.Drawing.Size(96, 43);
+            this.btnDescansar.TabIndex = 16;
+            this.btnDescansar.Text = "Descansar";
+            this.btnDescansar.UseVisualStyleBackColor = false;
+            this.btnDescansar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnAtaqueSimple
             // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(163, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 43);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "ataque simple";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAtaqueSimple.BackColor = System.Drawing.Color.Red;
+            this.btnAtaqueSimple.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtaqueSimple.ForeColor = System.Drawing.Color.White;
+            this.btnAtaqueSimple.Location = new System.Drawing.Point(163, 8);
+            this.btnAtaqueSimple.Name = "btnAtaqueSimple";
+            this.btnAtaqueSimple.Size = new System.Drawing.Size(96, 43);
+            this.btnAtaqueSimple.TabIndex = 15;
+            this.btnAtaqueSimple.Text = "ataque simple";
+            this.btnAtaqueSimple.UseVisualStyleBackColor = false;
+            this.btnAtaqueSimple.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnIniciar
             // 
@@ -360,11 +360,11 @@
         private System.Windows.Forms.TrackBar trackBar5;
         private System.Windows.Forms.ListBox lstLogs;
         private System.Windows.Forms.Button btnIniciar;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAtaqueEspecial;
+        private System.Windows.Forms.Button btnDescansar;
+        private System.Windows.Forms.Button btnAtaqueSimple;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblTiempo2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPersonaje;
     }
 }

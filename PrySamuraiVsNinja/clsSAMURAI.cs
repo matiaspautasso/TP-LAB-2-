@@ -9,6 +9,6 @@ namespace PrySamuraiVsNinja
     internal class clsSAMURAI
     {
         //ACA DEBE TENER EL ATAQUE SIMPLE Y ESPECIAL DE SAMURAI 
-
+       
     }
 }

@@ -21,11 +21,22 @@ namespace PrySamuraiVsNinja
         
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            //hacer cronometro de 1,10 min tiene que cambiar los lbl contando de 1,10 hacia 0
-            timer1 = new System.Windows.Forms.Timer();
+            //hacer cronometro 
+            //aca quede  MessageBox.Show($"{randomBool}");  comprobar si anda o no el random
+            timer1 = new Timer();
             timer1.Tick += new EventHandler(Contador);
             timer1.Interval = 1000;
             timer1.Start();
+
+            if (randomBool == false)
+            {
+                lblPersonaje.Text = " SAMURAI"; //ACA QUEDO 
+            }
+            if (!randomBool == false)
+            {
+                lblPersonaje.Text = " NINJA";
+            }
+         
         }
         public int duration = 40;
 
@@ -50,11 +61,44 @@ namespace PrySamuraiVsNinja
         {
           
         }
+        clsNINJA NINJA = new clsNINJA();
+
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //btnataque simple: 
+            
+           int ataqueS = NINJA.AtaqueS;
+
+
+
             //configurar en la clase cuanto resta el ataque de cada personaje
-            timer1.Start();
+            
+        }
+        clsPersonaje Ninja = new clsPersonaje();
+        clsPersonaje Samurai = new clsPersonaje();
+     
+
+        public void ControlDeTurno()
+        {
+            string turno = "";
+            if (Ninja.TURNO)
+            {
+                turno = " NINJA";
+            }
+            else
+            {
+                turno = "SAMURAI ";
+            }
+            lblPersonaje.Text = turno;
+        }
+
+        bool randomBool = GetRandomBool();
+        public static bool GetRandomBool()
+        {
+            Random rand = new Random();
+            return rand.Next(2) == 0;
         }
 
         private void FrmPelea_Load(object sender, EventArgs e)
