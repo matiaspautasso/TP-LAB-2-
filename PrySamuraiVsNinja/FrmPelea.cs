@@ -139,6 +139,35 @@ namespace PrySamuraiVsNinja
         private void btnDescansar_Click(object sender, EventArgs e) //btnDecansar
         {
             //este boton debe cederle el turno al rival 
+            //recordar si es true es ninja si es false samurai
+
+            string jugadorActual;
+            string rival;
+
+            if (TURNO)
+            {
+                jugadorActual = "NINJA";
+                rival = "SAMURAI";
+                TURNO = false; // Ceder turno al SAMURAI
+            }
+            else
+            {
+                jugadorActual = "SAMURAI";
+                rival = "NINJA";
+                TURNO = true; // Ceder turno al NINJA
+                if (TURNO)
+                {
+                    lblPersonaje.Text = "NINJA";
+                }
+                else
+                {
+                    lblPersonaje.Text = "SAMURAI";
+                }
+
+            }
+
+            lstConsola.Items.Add($"{jugadorActual} le cede su turno a {rival}");
+
             ControlDeTurno();
         }
         private void ResetGame()
