@@ -48,7 +48,7 @@
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.trackBar4 = new System.Windows.Forms.TrackBar();
             this.trackBar5 = new System.Windows.Forms.TrackBar();
-            this.lstLogs = new System.Windows.Forms.ListBox();
+            this.lstConsola = new System.Windows.Forms.ListBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblTiempo2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
@@ -77,7 +77,7 @@
             this.panel2.Controls.Add(this.lblVida2);
             this.panel2.Location = new System.Drawing.Point(1, 271);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(756, 69);
+            this.panel2.Size = new System.Drawing.Size(756, 73);
             this.panel2.TabIndex = 11;
             // 
             // lblPersonaje
@@ -101,7 +101,7 @@
             this.btnAtaqueEspecial.TabIndex = 17;
             this.btnAtaqueEspecial.Text = "Ataque especial";
             this.btnAtaqueEspecial.UseVisualStyleBackColor = false;
-            this.btnAtaqueEspecial.Click += new System.EventHandler(this.button3_Click);
+            this.btnAtaqueEspecial.Click += new System.EventHandler(this.btnAtaqueEspecial_Click);
             // 
             // btnDescansar
             // 
@@ -114,7 +114,7 @@
             this.btnDescansar.TabIndex = 16;
             this.btnDescansar.Text = "Descansar";
             this.btnDescansar.UseVisualStyleBackColor = false;
-            this.btnDescansar.Click += new System.EventHandler(this.button2_Click);
+            this.btnDescansar.Click += new System.EventHandler(this.btnDescansar_Click);
             // 
             // btnAtaqueSimple
             // 
@@ -127,7 +127,7 @@
             this.btnAtaqueSimple.TabIndex = 15;
             this.btnAtaqueSimple.Text = "ataque simple";
             this.btnAtaqueSimple.UseVisualStyleBackColor = false;
-            this.btnAtaqueSimple.Click += new System.EventHandler(this.button1_Click);
+            this.btnAtaqueSimple.Click += new System.EventHandler(this.btnAtaqueSimple_Click);
             // 
             // btnIniciar
             // 
@@ -274,17 +274,17 @@
             this.trackBar5.TabIndex = 28;
             this.trackBar5.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             // 
-            // lstLogs
+            // lstConsola
             // 
-            this.lstLogs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lstLogs.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstLogs.ForeColor = System.Drawing.SystemColors.Window;
-            this.lstLogs.FormattingEnabled = true;
-            this.lstLogs.ItemHeight = 15;
-            this.lstLogs.Location = new System.Drawing.Point(276, 167);
-            this.lstLogs.Name = "lstLogs";
-            this.lstLogs.Size = new System.Drawing.Size(238, 109);
-            this.lstLogs.TabIndex = 29;
+            this.lstConsola.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lstConsola.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstConsola.ForeColor = System.Drawing.SystemColors.Window;
+            this.lstConsola.FormattingEnabled = true;
+            this.lstConsola.ItemHeight = 15;
+            this.lstConsola.Location = new System.Drawing.Point(220, 92);
+            this.lstConsola.Name = "lstConsola";
+            this.lstConsola.Size = new System.Drawing.Size(328, 184);
+            this.lstConsola.TabIndex = 29;
             // 
             // timer1
             // 
@@ -309,7 +309,7 @@
             this.BackgroundImage = global::PrySamuraiVsNinja.Properties.Resources.Fondo_pelea_gif2;
             this.ClientSize = new System.Drawing.Size(757, 338);
             this.Controls.Add(this.lblTiempo2);
-            this.Controls.Add(this.lstLogs);
+            this.Controls.Add(this.lstConsola);
             this.Controls.Add(this.trackBar5);
             this.Controls.Add(this.trackBar4);
             this.Controls.Add(this.trackBar1);
@@ -358,7 +358,7 @@
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.TrackBar trackBar4;
         private System.Windows.Forms.TrackBar trackBar5;
-        private System.Windows.Forms.ListBox lstLogs;
+        private System.Windows.Forms.ListBox lstConsola;
         private System.Windows.Forms.Button btnIniciar;
         private System.Windows.Forms.Button btnAtaqueEspecial;
         private System.Windows.Forms.Button btnDescansar;

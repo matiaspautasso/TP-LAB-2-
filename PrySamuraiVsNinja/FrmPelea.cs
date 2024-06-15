@@ -18,6 +18,7 @@ namespace PrySamuraiVsNinja
             InitializeComponent();
             ninja = new clsNINJA();
             samurai = new clsSAMURAI();
+            DBA =new conexionDBA ();    
         }
         //
         private clsNINJA ninja;
@@ -39,7 +40,6 @@ namespace PrySamuraiVsNinja
             btnAtaqueSimple.Enabled = true;
             btnDescansar.Enabled = true;
             
-
 
         }
         //
@@ -68,28 +68,29 @@ namespace PrySamuraiVsNinja
         clsNINJA NINJA;
         clsSAMURAI SAMURAI; 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAtaqueSimple_Click(object sender, EventArgs e)
         {
             //btnataque simple: 
             if (TURNO==true)
             {
                 samurai.RecibirDanio(ninja.AtaqueSimple());
-                MessageBox.Show($"NINJA ataca y SAMURAI tiene {samurai.VIDA} de vida restante.");
+                lstConsola.Items.Add($"NINJA ataca y SAMURAI tiene {samurai.VIDA} de vida restante.");
             }
             else //si es false
             {
                 ninja.RecibirDanio(samurai.AtaqueSimple());
-                MessageBox.Show($"SAMURAI ataca y NINJA tiene {ninja.VIDA} de vida restante.");
+                lstConsola.Items.Add($"SAMURAI ataca y NINJA tiene {ninja.VIDA} de vida restante.");
             }
 
             if (samurai.VIDA <= 0)
             {
                 MessageBox.Show("NINJA gana!");
-                DBA.ActualizarVictorias(ninja.ID);  //ERROR ACA 
+                DBA.ActualizarVictorias(ninja.ID);  //ERROR ACA  _+
                 DBA.ActualizarDerrotas(samurai.ID);
                 ResetGame();
             }
-            else if (ninja.VIDA <= 0)
+            else
+            if (ninja.VIDA <= 0)
             {
                 MessageBox.Show("SAMURAI gana!");
                 DBA.ActualizarVictorias(samurai.ID);
@@ -108,7 +109,16 @@ namespace PrySamuraiVsNinja
         public void ControlDeTurno()
         {
             TURNO = GetRandomBool();
-            lblPersonaje.Text = TURNO ? "NINJA" : "SAMURAI";  //CAMBIAR
+
+            if (TURNO)
+            {
+                lblPersonaje.Text = "NINJA";
+            }
+            else
+            {
+                lblPersonaje.Text = "SAMURAI";
+            }
+
         }
 
         
@@ -126,7 +136,7 @@ namespace PrySamuraiVsNinja
             btnDescansar.Enabled = false;
         }
 
-        private void button2_Click(object sender, EventArgs e) //btnDecansar
+        private void btnDescansar_Click(object sender, EventArgs e) //btnDecansar
         {
             //este boton debe cederle el turno al rival 
             ControlDeTurno();
@@ -140,7 +150,7 @@ namespace PrySamuraiVsNinja
             btnDescansar.Enabled = false;
         }
 
-        private void button3_Click(object sender, EventArgs e) //btnAtaqueEspecial   
+        private void btnAtaqueEspecial_Click(object sender, EventArgs e) //btnAtaqueEspecial   
         {
             if (TURNO)
             {
@@ -148,11 +158,12 @@ namespace PrySamuraiVsNinja
                 {
                     samurai.RecibirDanio(ninja.AtaqueEspecial());
                     ninja.ConsumirMana(30);
-                    MessageBox.Show($"NINJA usa ataque especial y SAMURAI tiene {samurai.VIDA} de vida restante. NINJA tiene {ninja.MANA} de mana restante.");
+                    lstConsola.Items.Add($"NINJA usa ataque especial y SAMURAI tiene {samurai.VIDA} de vida restante." +
+                        $" NINJA tiene {ninja.MANA} de mana restante.");
                 }
                 else
                 {
-                    MessageBox.Show("NINJA no tiene suficiente mana para usar el ataque especial.");
+                    lstConsola.Items.Add("NINJA no tiene suficiente mana para usar el ataque especial.");
                     return;
                 }
             }
@@ -162,11 +173,12 @@ namespace PrySamuraiVsNinja
                 {
                     ninja.RecibirDanio(samurai.AtaqueEspecial());
                     samurai.ConsumirMana(30);
-                    MessageBox.Show($"SAMURAI usa ataque especial y NINJA tiene {ninja.VIDA} de vida restante. SAMURAI tiene {samurai.MANA} de mana restante.");
+                    lstConsola.Items.Add($"SAMURAI usa ataque especial y NINJA tiene {ninja.VIDA}" +
+                        $" de vida restante. SAMURAI tiene {samurai.MANA} de mana restante.");
                 }
                 else
                 {
-                    MessageBox.Show("SAMURAI no tiene suficiente mana para usar el ataque especial.");
+                    lstConsola.Items.Add("SAMURAI no tiene suficiente mana para usar el ataque especial.");
                     return;
                 }
             }

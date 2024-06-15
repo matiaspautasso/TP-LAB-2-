@@ -22,8 +22,46 @@ namespace PrySamuraiVsNinja
             cadena = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=NinjaVsSamuraiDBA.accdb";
         }
 
+        public bool UsuarioExiste(string nombre)
+        {
+            try
+            {
+                conexion = new OleDbConnection(cadena);
+                comando = new OleDbCommand();
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = $"SELECT COUNT(*) FROM Personajes WHERE NOMBRE = '{nombre}'";
+                conexion.Open();
+                int count = (int)comando.ExecuteScalar();
+                return count > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
+
+
+
+
+
+
         public void insertarUsuario(clsPersonaje usuario)
         {
+
+            if (UsuarioExiste(usuario.NOMBRE))
+            {
+                MessageBox.Show("El usuario ingresado ya existe.");
+                return;
+
+            }
+
             try
             {
                 conexion = new OleDbConnection(cadena);
